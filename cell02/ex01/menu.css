@@ -1,0 +1,28 @@
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+button {
+    background-color: orange;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff3e0;
+    min-width: 180px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
