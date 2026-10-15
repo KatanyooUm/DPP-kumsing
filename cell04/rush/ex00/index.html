@@ -1,43 +1,99 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Arcade | Home</title>
+    <title>Space Defender | Arcade Game</title>
     <link rel="stylesheet" href="style.css">
+    <script src="game.js" defer></script>
 </head>
+
 <body>
 
-    <main class="home">
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <a href="#home">HOME</a>
+        <a href="#game">PLAY GAME</a>
+        <a href="#how-to-play">HOW TO PLAY</a>
+    </nav>
 
-    <p class="welcome-text">WELCOME TO THE GALAXY</p>
-        <h1>SPACE <span>ARCADE</span></h1>
-    <p>Choose your player to explore their resume</p>
+    <!-- SECTION 1: HOME -->
+    <section id="home" class="hero">
+        <p class="subtitle">WELCOME TO THE GALAXY</p>
 
+        <h1>SPACE <span>DEFENDER</span></h1>
 
-        <div class="player-list">
-
- 
-<div class="player-list">
-
-    <a href="resume1.html" class="player-card">
-        <div class="player-avatar">01</div>
-        <h2>PLAYER 01</h2>
-        <p>kumsing</p>
-        <span>SELECT PLAYER →</span>
-    </a>
-
-    <a href="resume2.html" class="player-card">
-        <div class="player-avatar">02</div>
-        <h2>PLAYER 02</h2>
-        <p>nnarahim</p>
-        <span>SELECT PLAYER →</span>
-    </a>
-
+<div class="instruction-card">
+    <h3>SURVIVE</h3>
+    <p>
+        Shoot aliens to earn 10 points.
+        You lose a life when an alien hits you
+        or reaches the bottom.
+        Survive as long as possible!
+    </p>
 </div>
 
-    </main>
+
+      
+  <img src="images/spaceship.png" alt="Player spaceship" class="hero-spaceship">
+
+
+        <a href="#game" class="start-btn">START GAME</a>
+    </section>
+
+    <!-- SECTION 2: GAME -->
+    <section id="game" class="game-section">
+        <h2>PLAY GAME</h2>
+
+        <div class="game-container">
+
+            <div class="game-info">
+                <p>SCORE: <span id="score">0</span></p>
+                <p>LIVES: <span id="lives">3</span></p>
+            </div>
+
+            <canvas id="gameCanvas" width="600" height="400"></canvas>
+
+            <div class="game-controls">
+                <button id="leftBtn">LEFT</button>
+                <button id="shootBtn">FIRE</button>
+                <button id="rightBtn">RIGHT</button>
+            </div>
+
+            <button id="restartBtn">START / RESTART</button>
+
+            <p id="gameMessage">Press START / RESTART to play!</p>
+
+        </div>
+    </section>
+
+    <!-- SECTION 3: HOW TO PLAY -->
+    <section id="how-to-play" class="instructions">
+        <h2>HOW TO PLAY</h2>
+
+        <div class="instruction-list">
+           
+<div class="instruction-card">
+    <h3>MOVE</h3>
+    <p>Use WASD or Arrow Keys to move your spaceship.</p>
+</div>
+
+<div class="instruction-card">
+    <h3>SHOOT</h3>
+    <p>Left-click on the game screen or press SPACE to shoot.</p>
+</div>
+
+<div class="instruction-card">
+    <h3>On mobile</h3>
+    <p>Use the on-screen LEFT, FIRE, and RIGHT buttons.</p>
+</div>
+    </section>
+
+    <footer>
+        <p>SPACE DEFENDER — Discovery Piscine Rush Project</p>
+    </footer>
 
 </body>
 </html>

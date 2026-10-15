@@ -1,0 +1,32 @@
+html,body {
+    margin: 0;
+    padding: 0;
+}
+.parallax1 {
+    height: 100vh;
+    background-image: url(window.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.middle {
+    height: 250px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.parallax2 {
+    height: 100vh;
+    background-image: url(52HVcjStCQTsaDJWzEt946.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
