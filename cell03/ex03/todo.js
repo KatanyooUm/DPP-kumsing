@@ -1,5 +1,11 @@
+
 const newButton = document.getElementById("new");
 const list = document.getElementById("ft_list");
+const deleteDialog = document.getElementById("deleteDialog");
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+
+let taskToDelete = null;
 
 // บันทึกรายการลง Cookie
 function saveTasks() {
@@ -16,23 +22,23 @@ function saveTasks() {
 
 // สร้างรายการใหม่
 function addTask(text) {
-    const task = document.createElement("div");
+    let task = document.createElement("div");
 
     task.textContent = text;
 
+    // เมื่อคลิกรายการ ให้เปิดหน้าต่าง Yes / No
     task.addEventListener("click", function() {
-        if (confirm("Delete this task?")) {
-            task.remove();
-            saveTasks();
-        }
+        taskToDelete = task;
+        deleteDialog.style.display = "flex";
     });
 
+    // เพิ่มรายการไว้ด้านบนสุด
     list.prepend(task);
 }
 
-// กดปุ่ม New
+// กดปุ่ม New เพื่อเพิ่มรายการ
 newButton.addEventListener("click", function() {
-    const text = window.prompt("Enter a new task:");
+    let text = window.prompt("Enter a new task:");
 
     if (text === null || text.trim() === "") {
         return;
@@ -42,15 +48,32 @@ newButton.addEventListener("click", function() {
     saveTasks();
 });
 
+// กด Yes เพื่อลบรายการ
+yesBtn.addEventListener("click", function() {
+    if (taskToDelete !== null) {
+        taskToDelete.remove();
+        saveTasks();
+        taskToDelete = null;
+    }
+
+    deleteDialog.style.display = "none";
+});
+
+// กด No เพื่อยกเลิก
+noBtn.addEventListener("click", function() {
+    taskToDelete = null;
+    deleteDialog.style.display = "none";
+});
+
 // โหลดรายการจาก Cookie
 function loadTasks() {
-    const cookies = document.cookie.split("; ");
+    let cookies = document.cookie.split("; ");
 
     for (let cookie of cookies) {
         if (cookie.startsWith("todos=")) {
             try {
-                const saved = decodeURIComponent(cookie.substring(6));
-                const tasks = JSON.parse(saved);
+                let saved = decodeURIComponent(cookie.substring(6));
+                let tasks = JSON.parse(saved);
 
                 if (Array.isArray(tasks)) {
                     for (let i = tasks.length - 1; i >= 0; i--) {
@@ -68,4 +91,5 @@ function loadTasks() {
     }
 }
 
+// โหลดรายการเมื่อเปิดหน้าเว็บ
 loadTasks();
