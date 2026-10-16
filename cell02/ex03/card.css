@@ -1,0 +1,36 @@
+body {
+    background-color: #f0f2f5;
+    font-family: arail, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color:  #243a52;
+}
+table {
+    margin: 20px auto;
+    width: 350px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+td > img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+button {
+    background-color: #243a5a;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #3e6394;
+}
